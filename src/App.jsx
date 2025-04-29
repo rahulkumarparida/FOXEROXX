@@ -1,19 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import Nav from './Components/Nav'
-import Login from './Components/Login'
+import { BrowserRouter ,Routes ,Route, Outlet} from 'react-router-dom'
+import Home from "./Components/Home";
+import Dashboard from "./Components/Dashboard";
+import Databoard from "./Components/Databoard";
 
 function App() {
 
-
   return (
    <>
-      <div>
+    <div>
       <Nav />
-      </div>
-      <Login />
+    </div>
+   <BrowserRouter>
+   <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/Dashboard" element={<Dashboard />}/>
+        <Route path="/Databoard" element={<Databoard />}/>
+        </Routes>
+        
+   </BrowserRouter>
+  
+     
    </>
   )
 }
