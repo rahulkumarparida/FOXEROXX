@@ -13,14 +13,13 @@ function App() {
     <div>
       <Nav />
     </div>
-   <BrowserRouter>
+
    <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Dashboard" element={<Dashboard />}/>
         <Route path="/Databoard" element={<Databoard />}/>
         </Routes>
-        
-   </BrowserRouter>
+  
   
      
    </>
