@@ -29,6 +29,9 @@ input{
     margin: 2px;
     border-radius: 2px;
 }
+.FormCont{
+    overflow: hidden;
+}
 @media (max-width: 768px) {
     .Link {
       font-size: 1rem;
