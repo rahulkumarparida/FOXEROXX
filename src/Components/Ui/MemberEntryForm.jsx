@@ -1,31 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocalStorage } from "../../Hooks/useLocalStorage";
 
 export default function MemberEntryFrom() {
-    // let [groups, setAnotherGroup] = useState([]); 
-    let [done ,setDone] = useState(false)
+  // let [groups, setAnotherGroup] = useState([]);
+
   let [group, setGroup] = useState({
     GroupName: "",
     LeaderName: "",
     TotalMembers: 0,
-    Data: undefined,
+    Data: [],
   });
-  let arr = Array(group.TotalMembers).fill({})
-  let [member , setMember ] = useState({Name :"" , Amount : 0})
-  function handleClick(e) {
-    console.log(group);
-    console.log(`arr : ${ arr }`);
-    
-   
-        // setGroup({...group , Data : [...data  , member]})
 
-        // setMember({Name :"" , Amount : 0 }) 
-        
-    
-   setDone(true)
-     
+  let [member, setMember] = useState({ Name: "", Amount: 0 });
+  let key = `${group.GroupName}Data`
+  let { setData , getData , removeData} = useLocalStorage(key)
+  let memNum ;
+  function sumbitName(e){
+    console.log(group);     
+    setMember({ Name: "", Amount: 0 })
+    setGroup({...group, Data :  [...group.Data,member]})
+   
+      setData(group)
+  
+  
     e.preventDefault();
   }
-
  
   return (
     <div className="FormCont  border-1 rounded-sm  mt-10 flex p-4 px-8">
@@ -52,29 +51,39 @@ export default function MemberEntryFrom() {
             type="number"
             placeholder="Total Members "
             onChange={(e) => {
+              memNum = e.target.value
               setGroup({ ...group, TotalMembers: Number(e.target.value) });
             }}
           />
-          <button
-            className="border-1 shadow-md mx-2 p-[3px] px-3 rounded-sm"
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
-            ADD
-          </button>
+        
         </div>
         <div className="teaMinputs ">
-            {
-             done ?  arr.map((ele ,idx)=>{
-                return <div className="border-1 ">
-                       <input type="text" placeholder="Name" onChange={()=>{setMember({...member , Name : e.target.value})}}  />
-                       <input type="text" placeholder="Amount" onChange={()=>{setMember({...member , Amount : e.target.value})}} /> 
-                </div>
-              }):""
-
-                
-            }
+          <div>
+            <input type="text" placeholder="Member Name" onChange={(e)=>{
+                setMember({...member , Name : e.target.value})
+            }}
+            value={member.Name}
+            />
+            <input type="text" placeholder="Amount Paid" onChange={(e)=>{
+                setMember({...member , Amount : Number(e.target.value)})
+            }}
+            value={member.Amount}
+            />
+            <button className="border-1 shadow-md mx-2 p-[3px] px-3 rounded-sm" onClick={(e)=>{
+              sumbitName(e)
+            }}>
+              Add
+            </button>
+          </div>
+          <p>Total Members Added : {group.Data.length} </p>
+          {
+            group.Data.map((ele , idx)=>{
+              return <div key={idx} >
+                <p> Name :{ele.Name} </p>
+                <p>Amount: {ele.Amount} </p>
+              </div>
+            })
+          }
         </div>
       </form>
     </div>
