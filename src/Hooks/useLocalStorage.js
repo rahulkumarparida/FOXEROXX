@@ -12,9 +12,9 @@ function useLocalStorage(key) {
         
       }
   }
-  function getData() {
+  function getData(keyy) {
     try { 
-      let item = localStorage.getItem(key)
+      let item = localStorage.getItem(keyy)
      if (item) {
       return JSON.parse(item)
      }

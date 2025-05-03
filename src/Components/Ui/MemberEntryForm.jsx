@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useLocalStorage } from "../../Hooks/useLocalStorage";
 
 export default function MemberEntryFrom() {
-  // let [groups, setAnotherGroup] = useState([]);
 
   let [group, setGroup] = useState({
     GroupName: "",
@@ -10,21 +9,38 @@ export default function MemberEntryFrom() {
     TotalMembers: 0,
     Data: [],
   });
+  let key = `${group.GroupName}Data`  
+
+ 
 
   let [member, setMember] = useState({ Name: "", Amount: 0 });
-  let key = `${group.GroupName}Data`
   let { setData , getData , removeData} = useLocalStorage(key)
-  let memNum ;
+
   function sumbitName(e){
-    console.log(group);     
-    setMember({ Name: "", Amount: 0 })
-    setGroup({...group, Data :  [...group.Data,member]})
-   
-      setData(group)
-  
+    console.log(group);   
+    if (group.GroupName , group.LeaderName , group.TotalMembers !== "") {
+      
+      let updatedGroup = {...group, Data :  [...group.Data,member]}
+    setGroup(updatedGroup)
+    if (group.TotalMembers > group.Data.length) {
+      setData(updatedGroup)
+    }else{
+      group.GroupName , group.LeaderName , group.TotalMembers !== "" ? alert("Fill the form completely"):alert("Max Member reached")
+    }
+    }  
+    
+    setMember({ Name: "", Amount: 0 })  
   
     e.preventDefault();
   }
+  let FetchData = getData(key) ? getData(key) : {
+    GroupName: "",
+    LeaderName: "",
+    TotalMembers: 0,
+    Data: [{ Name: "", Amount: 0 }],
+  }
+  console.log(FetchData);
+  
  
   return (
     <div className="FormCont  border-1 rounded-sm  mt-10 flex p-4 px-8">
@@ -36,6 +52,7 @@ export default function MemberEntryFrom() {
           onChange={(e) => {
             setGroup({ ...group, GroupName: e.target.value });
           }}
+          required
         />
         <div className="pt-4">
           <input
@@ -45,15 +62,17 @@ export default function MemberEntryFrom() {
             onChange={(e) => {
               setGroup({ ...group, LeaderName: e.target.value });
             }}
+            required
           />
           <input
             className=""
             type="number"
             placeholder="Total Members "
             onChange={(e) => {
-              memNum = e.target.value
+            
               setGroup({ ...group, TotalMembers: Number(e.target.value) });
             }}
+            required
           />
         
         </div>
@@ -66,6 +85,8 @@ export default function MemberEntryFrom() {
             />
             <input type="text" placeholder="Amount Paid" onChange={(e)=>{
                 setMember({...member , Amount : Number(e.target.value)})
+               
+  
             }}
             value={member.Amount}
             />
@@ -75,9 +96,9 @@ export default function MemberEntryFrom() {
               Add
             </button>
           </div>
-          <p>Total Members Added : {group.Data.length} </p>
+          <p>Total Members Added : {FetchData.Data.length} </p>
           {
-            group.Data.map((ele , idx)=>{
+            FetchData.Data.map((ele , idx)=>{
               return <div key={idx} >
                 <p> Name :{ele.Name} </p>
                 <p>Amount: {ele.Amount} </p>
