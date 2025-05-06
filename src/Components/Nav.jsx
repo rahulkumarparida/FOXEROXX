@@ -4,14 +4,14 @@ import Logo from "./Images/FOXEROXX.png";
 export default function Nav() {
   return (
     <>
-      <div className=" h-18 border-black flex justify-between bg-[#f2f2f2]">
-        <div className="logo flex items-end">
+      <div className=" h-18  border-black border-1 flex justify-between bg-[#f2f2f2]">
+        <div className="logo  flex items-end w-[30vw]">
           <a href="./">
             <img src={Logo} alt="" className="h-18 w-49 pt-3 object-cover " />
           </a>
         </div>
 
-        <div className="lg:flex  justify-between items-end ">
+        <div className="LinkCont lg:flex  flex-row justify-around items-start w-[70vw] ">
           
             <Link className="Link" to="/">
               Home
@@ -24,7 +24,6 @@ export default function Nav() {
             </Link>
         
         </div>
-        <div className=" flex md:pr-10 "></div>
       </div>
     </>
   );

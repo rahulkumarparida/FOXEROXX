@@ -1,10 +1,9 @@
 @import "tailwindcss";
-.Link{
-    padding: 0 30px ;
-    margin: 0 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-size: 20px;
+.Link , .LinkCont{
+   
+    /* margin: 0 10px; */
+   padding: 15px;
+    font-size: 15px;
     transition: all ease 0.3s;
     display: flex;
     cursor: pointer;
@@ -29,13 +28,14 @@ input{
     margin: 2px;
     border-radius: 2px;
 }
-.home{
-    overflow: scroll;
-}
+/* .home{
+    overflow: hidden;
+} */
 @media (max-width: 768px) {
+    
     .Link {
       font-size: 1rem;
-      padding: 0px 1.5vw;
+      padding: 1vw;
       margin: 5px 0;
       justify-content: center;
     }
