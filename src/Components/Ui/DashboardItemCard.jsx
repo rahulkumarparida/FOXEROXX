@@ -6,11 +6,10 @@ export default function DashboardItemCard({ groupName }) {
 
   let { setData, getData } = useLocalStorage(`${groupName}Data`);
   let groupData = getData(`${groupName}Data`);
-  console.log("val--> ", groupData);
 
 
   function UserCard({ Data }) {
-    //   console.log(Data);
+ 
     
     let [state, setState] = useState(false);
 
@@ -58,11 +57,13 @@ export default function DashboardItemCard({ groupName }) {
   }
 
   return (
-    <div>
+    <div >
       <div className="border-0 flex  items-center justify-center h-[10vh] shadow-lg">
         <p className="text-3xl">{groupName}'s Group </p>
       </div>
-      <UserCard Data={groupData} />
+      <div className=" overflow-y-auto">
+         <UserCard Data={groupData} />
+      </div>
     </div>
   );
 }

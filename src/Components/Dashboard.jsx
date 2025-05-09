@@ -17,13 +17,16 @@ export default function Dashboard() {
 
     return (
       <>
+      <p className=" cursor-not-allowed p-2 text-center text-3xl">
+        Groups
+      </p>
         {
           (GroupNames = ""
             ? ""
             : GroupNames.map((ele, idx) => {
                 return (
                   <div
-                    className=" border-1 p-2 m-1 flex items-center justify-center cursor-pointer"
+                    className=" sideBarName border-3 p-2 m-1 flex items-center justify-center cursor-pointer"
                     key={ele}
                     onClick={(e) => {
                       HandlName(e);
