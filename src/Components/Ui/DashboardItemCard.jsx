@@ -30,7 +30,7 @@ export default function DashboardItemCard({ groupName }) {
         {state ? (
           <PrintDialog data={Data} />
         ) : (
-          <>
+          <div className="MemberNamesCont  " >
             {Data.Data.map((ele, id) => {
               return (
                 <div
@@ -50,7 +50,7 @@ export default function DashboardItemCard({ groupName }) {
                 </div>
               );
             })}
-          </>
+          </div >
         )}
       </div>
     );

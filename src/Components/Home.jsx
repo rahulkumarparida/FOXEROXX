@@ -33,7 +33,7 @@ export default function(){
                     <button className="createBTN border-1 shadow-md p-1 rounded-sm " onClick={()=>{click ? setClick(false) : setClick(true)}}>CREATE</button>
             </div>
             <div className=" border-1 text-red-700 p-3 rounded-sm bg-red-200">
-                <p>Do not Refreshes the Page in the middle the data will erased!! and also make sure to click done after writing your group Name </p>
+                <p>Do not Refreshes the Page in the middle the data will erased!! and also make sure to click done after writing your group member Name </p>
             
             </div>
             {click ?  <MemberEntryFrom />   :  <MemberCard Card={Card} />}
