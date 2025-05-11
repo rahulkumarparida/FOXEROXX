@@ -17,6 +17,7 @@ export default function PrintDialog(props) {
       ele.Amount = change;
       // console.log(ele.Amount);
       //  console.log(ele);
+      
       return ele;
     });
     console.log("Updated Data -- ", updatedData);
@@ -42,7 +43,7 @@ export default function PrintDialog(props) {
     <input
       type="text"
       className="Cost border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-500"
-      placeholder="Cost for Each Paper"
+      placeholder="e.g. ₹1 ,₹2..."
       onChange={(e) => {
         setFromData({ ...formData, cost: e.target.value });
       }}

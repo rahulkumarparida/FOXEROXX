@@ -17,13 +17,14 @@ export default function DashboardItemCard({ groupName }) {
       <div className="flex  flex-col p-3 items-center justify-center">
         <div>
           <button
-            className="createBTN border-1 shadow-md p-1 px-2 rounded-sm"
+            className="createBTN border border-gray-300 bg-zinc-500 text-white shadow-md p-2 px-4 rounded-md hover:bg-black transition-colors"
             onClick={(e) => {
               setState(!state);
+             
               e.preventDefault();
             }}
           >
-            <p> {state ? "Done here" : "Printed"}</p>
+            <p> {state ? "Done here" : "Add Print" }</p>
           </button>
         </div>
 
@@ -59,7 +60,7 @@ export default function DashboardItemCard({ groupName }) {
   return (
     <div >
       <div className="border-0 flex  items-center justify-center h-[10vh] shadow-lg">
-        <p className="text-3xl">{groupName}'s Group </p>
+        <p className="text-3xl">{groupName}'s Group <sub className="text-sm">by {groupData.LeaderName}</sub> </p>
       </div>
       <div className=" overflow-y-auto">
          <UserCard Data={groupData} />
