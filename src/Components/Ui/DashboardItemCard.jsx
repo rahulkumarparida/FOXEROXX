@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../../Hooks/useLocalStorage";
 // import UserCard from "./UserCard";
-import PrintDialog from "./PrintDialog";
+// import PrintDialog from "./PrintDialog";
+import {PrintDialog } from "./PrintDialog";
+
 export default function DashboardItemCard({ groupName }) {
+  // console.log("this is the previous data updated on the group : ", prevData  );  
+ 
 
   let { setData, getData } = useLocalStorage(`${groupName}Data`);
   let groupData = getData(`${groupName}Data`);
+
 
 
   function UserCard({ Data }) {

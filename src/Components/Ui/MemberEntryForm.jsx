@@ -7,6 +7,7 @@ export default function MemberEntryFrom() {
     LeaderName: "",
     TotalMembers: 0,
     Data: [],
+    Printed : []
   });
   let key = `${group.GroupName}Data`;
   let [boolexp, setBoolexp] = useState({ gotAllData: false });
@@ -18,7 +19,7 @@ export default function MemberEntryFrom() {
   console.log(`what ___ ${groupname}`);
 
   function sumbitName(e) {
-    console.log(group);
+    // console.log(group);
     if ((group.GroupName, group.LeaderName, group.TotalMembers !== "")) {
       let updatedGroup = { ...group, Data: [...group.Data, member] };
       setGroup(updatedGroup);
@@ -47,6 +48,7 @@ export default function MemberEntryFrom() {
         LeaderName: "",
         TotalMembers: 0,
         Data: [{ Name: "", Amount: 0 }],
+        Printed : []
       };
   // console.log(FetchData);
 
