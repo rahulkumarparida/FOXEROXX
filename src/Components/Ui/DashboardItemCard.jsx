@@ -2,20 +2,25 @@ import { useEffect, useState } from "react";
 import { useLocalStorage } from "../../Hooks/useLocalStorage";
 // import UserCard from "./UserCard";
 // import PrintDialog from "./PrintDialog";
-import {PrintDialog } from "./PrintDialog";
+import { PrintDialog } from "./PrintDialog";
 
 export default function DashboardItemCard({ groupName }) {
-  // console.log("this is the previous data updated on the group : ", prevData  );  
- 
+  // console.log("this is the previous data updated on the group : ", prevData  );
 
   let { setData, getData } = useLocalStorage(`${groupName}Data`);
   let groupData = getData(`${groupName}Data`);
 
-
-
   function UserCard({ Data }) {
- 
-    
+    function HandleState(e) {
+      console.log(e.target.innerHTML);
+      if (e.target.innerHTML.toString == "Done here") {
+        window.reload()
+      }
+
+      setState(!state);
+      e.preventDefault();
+    }
+
     let [state, setState] = useState(false);
 
     return (
@@ -24,19 +29,17 @@ export default function DashboardItemCard({ groupName }) {
           <button
             className="createBTN border border-gray-300 bg-zinc-500 text-white shadow-md p-2 px-4 rounded-md hover:bg-black transition-colors"
             onClick={(e) => {
-              setState(!state);
-             
-              e.preventDefault();
+              HandleState(e);
             }}
           >
-            <p> {state ? "Done here" : "Add Print" }</p>
+            <p> {state ? "Done here" : "Add Print"}</p>
           </button>
         </div>
 
         {state ? (
           <PrintDialog data={Data} />
         ) : (
-          <div className="MemberNamesCont  " >
+          <div className="MemberNamesCont  ">
             {Data.Data.map((ele, id) => {
               return (
                 <div
@@ -56,19 +59,22 @@ export default function DashboardItemCard({ groupName }) {
                 </div>
               );
             })}
-          </div >
+          </div>
         )}
       </div>
     );
   }
 
   return (
-    <div >
+    <div>
       <div className="border-0 flex  items-center justify-center h-[10vh] shadow-lg">
-        <p className="text-3xl">{groupName}'s Group <sub className="text-sm">by {groupData.LeaderName}</sub> </p>
+        <p className="text-3xl">
+          {groupName}'s Group{" "}
+          <sub className="text-sm">by {groupData.LeaderName}</sub>{" "}
+        </p>
       </div>
       <div className=" overflow-y-auto">
-         <UserCard Data={groupData} />
+        <UserCard Data={groupData} />
       </div>
     </div>
   );
