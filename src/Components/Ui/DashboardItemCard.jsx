@@ -12,10 +12,8 @@ export default function DashboardItemCard({ groupName }) {
 
   function UserCard({ Data }) {
     function HandleState(e) {
-      console.log(e.target.innerHTML);
-      if (e.target.innerHTML.toString == "Done here") {
-        window.reload()
-      }
+      
+      
 
       setState(!state);
       e.preventDefault();
@@ -30,9 +28,14 @@ export default function DashboardItemCard({ groupName }) {
             className="createBTN border border-gray-300 bg-zinc-500 text-white shadow-md p-2 px-4 rounded-md hover:bg-black transition-colors"
             onClick={(e) => {
               HandleState(e);
+              console.log(e.target.innerText);
+              if (e.target.innerHTML == "Done here") {
+
+        location.reload()
+      }
             }}
           >
-            <p> {state ? "Done here" : "Add Print"}</p>
+             {state ? "Done here" : "Add Print"}
           </button>
         </div>
 
