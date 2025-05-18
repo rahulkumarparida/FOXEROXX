@@ -17,7 +17,9 @@ export default function Dashboard() {
 
     return (
       <>
-      <p className=" cursor-not-allowed p-2 text-center text-3xl">
+      <p className="cursor-pointer p-2 text-center text-3xl" onClick={()=>{
+        location.reload()
+      }} >
         Groups
       </p>
         {
@@ -48,7 +50,10 @@ export default function Dashboard() {
       </div>
       <div className=" dashBoardCont border-1 h-[89vh] w-[71vw]  ">
         {groupName == "" ? (
-          <DashboardLanding />
+        <div>
+            <DashboardLanding />
+          
+        </div>
         ) : (
           <DashboardItemCard groupName={groupName} />
         )}

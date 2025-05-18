@@ -39,11 +39,11 @@ input{
 /* .home{
     overflow: hidden;
 } */
- .sideBar , .MemberNamesCont , .PrintDialogCont , .FormCont {
+ .sideBar , .MemberNamesCont , .PrintDialogCont , .FormCont  {
 -webkit-animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 	        animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
  }
- .MemberName{
+ .MemberName , .Printdata{
     -webkit-animation: swing-in-left-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 	        animation: swing-in-left-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
  }
@@ -128,6 +128,7 @@ input{
         box-shadow: inset 0 0 20px black;
 
  }
+
 @media (max-width: 768px) {
     
     .Link {
