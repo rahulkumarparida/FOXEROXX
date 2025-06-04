@@ -6,6 +6,8 @@ import Home from "./Components/Home";
 import Dashboard from "./Components/Dashboard";
 import Databoard from "./Components/Databoard";
 import DashboardLanding from './Components/Ui/DashboardLanding';
+import Account from './Components/Account';
+import Docs from './Components/Docs';
 
 function App() {
 
@@ -21,8 +23,11 @@ function App() {
           <Route path="PrintLogs" element = {<DashboardLanding />}/>
         </Route>
         <Route path="/Databoard" element={<Databoard />}/>
+  <Route path="/Account" element={<Account />}/>  
+    <Route path="/Docs" element={<Docs/>}/>  
+
         </Routes>
-  
+       
   
      
    </>

@@ -8,12 +8,12 @@ export default function DashboardLanding() {
   let [visible, setVisibity] = useState(false);
  
   return (
-    <div className="h-[100%] border-1  ">
+    <div className="h-[100%]  ">
       <h1 className="text-center mt-3">
         Hello Welcome to the page to click on the group name to render your
         group data{" "}
       </h1>
-      <div className="RecentPrintData overflow-auto  border-1  m-3 p-3">
+      <div className="RecentPrintData overflow-hidden    m-3 p-3">
         <p className="text-center text-zinc-600 ">
           Check your Print Logs under your group name
         </p>
@@ -47,7 +47,7 @@ export default function DashboardLanding() {
                   </p>
                 </div>
                 {visible && idx == visibleEle
-                  ? PData.map((ele, idx) => {
+                  ? PData.reverse().map((ele, idx) => {
 
                      return visible  ?  (
                         <div
@@ -55,10 +55,13 @@ export default function DashboardLanding() {
                           key={idx + ele}
                         >
                           <p>
-                            {ele.Number} Pages are printed each costing{" "}
-                            {ele.cost}
+                            {ele.Number} Pages are printed each costing{" "} 
+                            ₹{ele.cost}
                           </p>
-                          <p>Total Cost: {ele.Number * ele.cost}</p>
+                          <p>Total Cost: ₹{ele.Number * ele.cost}</p>
+                                                   
+                          
+
                         </div>
                       ) :  ""
                       
