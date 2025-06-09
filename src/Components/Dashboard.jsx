@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 import DashboardItemCard from "./Ui/DashboardItemCard";
 import DashboardLanding from "./Ui/DashboardLanding";
-
+//This is the Dashboard of the Page
 export default function Dashboard() {
   let [groupName, setGroupName] = useState("");
   const SideBarinfo = () => {
