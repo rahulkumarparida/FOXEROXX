@@ -77,6 +77,6 @@ export default function DashboardLanding() {
       </div>
     </div>
   : <div className="flex items-center justify-center h-[80vh] ">
-    <p className=" text-3xl ">Add a Group to see here</p>
+    <p className=" text-3xl ">Add a Group to see the data here</p>
   </div>
 }

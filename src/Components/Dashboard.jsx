@@ -20,11 +20,13 @@ export default function Dashboard() {
       <p className="cursor-pointer p-2 text-center text-3xl" onClick={()=>{
         location.reload()
       }} >
-        Groups
+        Groupssss
       </p>
         {
-          (GroupNames = ""
-            ? ""
+          (!GroupNames
+            ? <div className="text-center text-xl">
+              <p>No groups yet added</p>
+            </div>
             : GroupNames.map((ele, idx) => {
                 return (
                   <div
