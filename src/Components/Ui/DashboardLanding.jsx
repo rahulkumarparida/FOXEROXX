@@ -7,8 +7,8 @@ export default function DashboardLanding() {
   let Groups = getData("GroupNames");
   let [visible, setVisibity] = useState(false);
  
-  return (
-    <div className="h-[100%]  ">
+ return Groups ?
+  <div className="h-[100%]  ">
       <h1 className="text-center mt-3">
         Hello Welcome to the page to click on the group name to render your
         group data{" "}
@@ -17,7 +17,8 @@ export default function DashboardLanding() {
         <p className="text-center text-zinc-600 ">
           Check your Print Logs under your group name
         </p>
-        {Groups.map((ele, idx) => {
+      
+        {(Groups.map((ele, idx) => {
           let {
             setData: setGropuData,
             getData: getGroupData,
@@ -72,8 +73,10 @@ export default function DashboardLanding() {
               </div>
             );
           }
-        })}
+        }))}
       </div>
     </div>
-  );
+  : <div className="flex items-center justify-center h-[80vh] ">
+    <p className=" text-3xl ">Add a Group to see here</p>
+  </div>
 }
