@@ -62,13 +62,13 @@ useEffect(()=>{
   };
 
   return (
-    <div className="flex  mt-2">
-      <div className="sideBar border-1 h-[89vh] w-[28vw] mx-1 ">
+    <div className="flex  border-black  mt-2 bg-white ">
+      <div className="sideBar  h-[89vh] w-[28vw] mx-1 ">
         
             <SideBarinfo />
      
       </div>
-      <div className=" dashBoardCont border-1 h-[89vh] w-[71vw]  ">
+      <div className=" dashBoardCont border-l-3 m-2 h-[89vh] w-[71vw]  ">
         {groupName == "" ? (
         <div>
             <DashboardLanding />

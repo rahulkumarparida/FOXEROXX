@@ -4,7 +4,7 @@ import MemberEntryFrom from "./Ui/MemberEntryForm"
 export default function(){
     
 
-    return <div className="home flex items-center flex-col sm:text-sm ">
+    return <div className="home flex items-center flex-col sm:text-sm  bg-gray-300">
                  <h1 className="pt-4 text-3xl">HomePage</h1>   
         <div className="HomeConatiner py-10 flex  flex-col  items-center">
            

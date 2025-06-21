@@ -135,7 +135,7 @@ export default function MemberEntryFrom() {
         className="border border-zinc-400 bg-zinc-100 hover:bg-black hover:text-white transition-colors shadow-md mx-2 p-1 px-4 rounded-md"
         onClick={(e) => {
           setGroupName([...groupname, group.GroupName]);
-          location.reload();
+          location.replace("/Dashboard");
           e.preventDefault();
         }}
       >
