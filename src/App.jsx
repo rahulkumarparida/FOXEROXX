@@ -1,13 +1,13 @@
 
 import './App.css'
 import Nav from './Components/Nav'
-import { BrowserRouter ,Routes ,Route, Outlet} from 'react-router-dom'
+import { Routes ,Route} from 'react-router-dom'
 import Home from "./Components/Home";
 import Dashboard from "./Components/Dashboard";
-import Databoard from "./Components/Databoard";
-import DashboardLanding from './Components/Ui/DashboardLanding';
+import {Databoard} from "./Components/Databoard";
 import Account from './Components/Account';
 import Docs from './Components/Docs';
+
 
 function App() {
 
@@ -20,9 +20,9 @@ function App() {
    <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Dashboard" element={<Dashboard />}>
-          <Route path="PrintLogs" element = {<DashboardLanding />}/>
+       
         </Route>
-        <Route path="/Databoard" element={<Databoard />}/>
+        <Route path="/HowToUse" element={<Databoard />}/>
   <Route path="/Account" element={<Account />}/>  
     <Route path="/Docs" element={<Docs/>}/>  
 

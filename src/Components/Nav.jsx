@@ -19,15 +19,9 @@ export default function Nav() {
             <Link className="Link" to="/Dashboard">
               Dashboard
             </Link>
-            <Link className="Link" to="/Databoard">
-              Databoard
-            </Link>
-         <Link className="Link" to="/Account">
-              Accounts
-            </Link>
-             <Link className="Link" to="/Docs">
-              Docs
-            </Link>
+            <Link className="Link" to="/HowToUse">
+            How To Use?
+            </Link>         
         </div>
       </div>
     </>

@@ -1,20 +1,49 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocalStorage } from "../../Hooks/useLocalStorage";
 // import UserCard from "./UserCard";
 // import PrintDialog from "./PrintDialog";
 import { PrintDialog } from "./PrintDialog";
+import { Outlet, useParams } from "react-router-dom";
 
-export default function DashboardItemCard({ groupName }) {
-  // console.log("this is the previous data updated on the group : ", prevData  );
+
+
+
+function UserData({Data }) {
+ 
+    console.log(Data);
+    
+    return<div className="MemberNamesCont  ">
+            {Data.Data.map((ele, id) => {
+              return (
+                <div
+                  className="flex m-2 rounded-sm shadow-2xl items-center justify-around border-0 h-[10vh] w-[60vw]  "
+                  key={id}
+                >
+                  <div className="flex justify-between w-[40vw]">
+                    <div className="p-1 ">
+                      <p> 
+                        {id + 1}. {ele.Name}
+                      </p>
+                    </div>
+                    <div className="p-1 ">
+                      <p>₹{ele.Amount} </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+  }
+  function DashboardItemCard({ groupName }) {
 
   let { setData, getData } = useLocalStorage(`${groupName}Data`);
   let groupData = getData(`${groupName}Data`);
+  
+  // console.log("this is the previous data updated on the group : ", prevData  );
+
 
   function UserCard({ Data }) {
     function HandleState(e) {
-      
-      
-
       setState(!state);
       e.preventDefault();
     }
@@ -42,27 +71,10 @@ export default function DashboardItemCard({ groupName }) {
         {state ? (
           <PrintDialog data={Data} />
         ) : (
-          <div className="MemberNamesCont  ">
-            {Data.Data.map((ele, id) => {
-              return (
-                <div
-                  className="flex m-2 rounded-sm shadow-2xl items-center justify-around border-0 h-[10vh] w-[60vw]  "
-                  key={id}
-                >
-                  <div className="flex justify-between w-[40vw]">
-                    <div className="p-1 ">
-                      <p>
-                        {id + 1}. {ele.Name}
-                      </p>
-                    </div>
-                    <div className="p-1 ">
-                      <p>₹{ele.Amount} </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <>
+          <UserData Data={groupData} />
+          
+          </>
         )}
       </div>
     );
@@ -78,7 +90,10 @@ export default function DashboardItemCard({ groupName }) {
       </div>
       <div className=" overflow-y-auto">
         <UserCard Data={groupData} />
+        
       </div>
     </div>
   );
 }
+
+export  {DashboardItemCard , UserData}
